@@ -1,31 +1,22 @@
 package com.ll.exam.app10.app.home.controller;
 
-
+import com.ll.exam.app10.app.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 
 @Controller
 @RequiredArgsConstructor
 public class HomeController {
-    @RequestMapping("/")
-    public String main() {
+    private final MemberService memberService;
+
+    @GetMapping("/")
+    public String showMain() {
         return "home/main";
     }
 
-    @RequestMapping("/test/upload")
-    public String upload() {
-        return "home/test/upload";
-    }
-    @GetMapping("/member/join")
-    public String join() {
-        return "home/member/join";
-    }
-
-    @GetMapping("/member/profile")
-    public String joinPost() {
-        return "home/member/profile";
+    @GetMapping("/about")
+    public String showAbout() {
+        return "home/about";
     }
 }
